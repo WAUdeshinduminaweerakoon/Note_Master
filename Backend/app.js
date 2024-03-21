@@ -1,50 +1,27 @@
-const express = require( "express");
-const app=express();
-const mongoose=require("mongoose");
+const express = require("express");
+const mongoose = require("mongoose");
+const userRoutes = require("./src/routes/userRoutes");
+
+const app = express();
+
 app.use(express.json());
 
-//mongodb connection
-mongoose.connect("mongodb+srv://udeshidumina:udesh123@cluster0.4jg3pk6.mongodb.net/Note_Master",{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-},(err)=>{
-    if(!err){
-        console.log("connected to DB")
-    }else{
-        console.log("error")
+// MongoDB connection
+mongoose.connect("mongodb+srv://udeshidumina:udesh123@cluster0.4jg3pk6.mongodb.net/Note_Master", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, (err) => {
+    if (!err) {
+        console.log("Connected to DB");
+    } else {
+        console.log("Error connecting to DB:", err);
     }
-})
+});
 
+// Routes
+app.use("/user", userRoutes);
 
-//schema
-
-const sch={
-    firstname:String,
-    lastname:String,
-    email:String,
-    password:String
-}
-const model=mongoose.model("user", sch);
-
-//post
-app.post("/post",async(req,res)=>{
-    console.log("inside post function");
-
-    const data = new model({
-         firstname:req.body.firstname,
-         lastname:req.body.lastname,
-         email:req.body.email,
-         password:req.body.password
-    });
-    console.log(data);
-
-    const val = await data.save();
-    res.json(val);
-
-
-})
-
-app.listen(3001,()=>{
-    console.log("on port 3001")
-
-})
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
