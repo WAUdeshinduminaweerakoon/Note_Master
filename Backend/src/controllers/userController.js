@@ -8,6 +8,7 @@ exports.createUser = async (req, res) => {
             email: req.body.email,
             password: req.body.password
         });
+        // add if
         const savedUser = await newUser.save();
         res.json(savedUser);
     } catch (error) {
@@ -18,11 +19,13 @@ exports.createUser = async (req, res) => {
 exports.getUserByEmail = async (req, res) => {
     try {
         const email = req.params.email;
+        console.log(email)
         const user = await UserModel.findOne({ email: email });
         if (!user) {
             res.status(404).json({ message: "User not found" });
         } else {
-            res.json(data);
+//            console.log(user)
+            res.json(user);
 
         }
     } catch (error) {

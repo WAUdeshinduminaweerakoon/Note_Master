@@ -1,10 +1,11 @@
-const express = require( "express");
+const expre1ss = require( "express");
 const app=express();
 const mongoose=require("mongoose");
 app.use(express.json());
 
+
 //mongodb connection
-mongoose.connect("mongodb+srv://udeshidumina:udesh123@cluster0.4jg3pk6.mongodb.net/Note_Master",{
+mongoose.connect(env.mongodb.url,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 },(err)=>{
