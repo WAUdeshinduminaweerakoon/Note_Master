@@ -1,9 +1,10 @@
-import Image from "next/image";
 
-export default function Home() {
+
+ function Home() {
   return (
-   <>
-   <h1>Loging</h1>
-   </>
+    <>
+      <h1>edrftgyhujiokpl;</h1>
+    </>
   );
 }
+export default Home;
