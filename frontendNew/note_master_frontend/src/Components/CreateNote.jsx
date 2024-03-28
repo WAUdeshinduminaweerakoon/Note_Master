@@ -18,7 +18,7 @@ const CreateNote = ({inputText, setInputText, saveHander}) => {
         </textarea>
         <div className='flex items-center justify-between mt-2'>
             <span>{charLimit}</span>
-            <button onClick={saveHander} className='px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none'>Save</button>
+            <button onClick={saveHander} className='px-2 py-1 text-black bg-orange-300 rounded-xl hover:bg-green-500 focus:outline-none '>Save</button>
         </div>
       
     </div>
