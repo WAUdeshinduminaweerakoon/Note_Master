@@ -33,6 +33,12 @@ const Notes = () => {
         setInputText("")
         setEditToggle(null)
     }
+
+    const deleteHadler = (id) => {
+        const newNotes = notes.filter(n => n.id !== id)
+        setNotes(newNotes)
+
+    }
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem("Notes"))
         if(data){
@@ -59,6 +65,7 @@ const Notes = () => {
                     id={note.id}
                     text={note.text}
                     editHadler = {editHandler}
+                    deleteHadler = {deleteHadler}
                 
                 >        
                 </Note>
