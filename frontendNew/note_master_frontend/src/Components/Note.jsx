@@ -17,4 +17,4 @@ const Note = ({id, text, editHandler, deleteHadler}) => {
   )
 }
 
-export default Note
+export default Note;

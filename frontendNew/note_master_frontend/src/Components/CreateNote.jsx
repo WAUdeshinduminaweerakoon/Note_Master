@@ -9,6 +9,7 @@ const CreateNote = ({inputText, setInputText, saveHander}) => {
         <textarea 
         cols = {20}
         rows = {10}
+        value={inputText}
         placeholder='Type......'
         onChange={(e) => setInputText(e.target.value)}
         maxLength={200}

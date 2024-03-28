@@ -39,6 +39,7 @@ const SignIn = () => {
   };
 
   return (
+    <div className="flex items-center justify-center h-screen">
     <div className="max-w-md px-10 mx-auto mt-8 bg-red-300 py-7 rounded-xl">
       <h2 className="mb-4 text-2xl font-bold">Sign In</h2>
       {errorMessage && <p className="mb-4 text-red-600">{errorMessage}</p>}
@@ -52,7 +53,7 @@ const SignIn = () => {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md"
+            className="w-full px-10 py-2 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -71,6 +72,7 @@ const SignIn = () => {
         </div>
         <button type="submit" className="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Sign In</button>
       </form>
+    </div>
     </div>
   );
 };

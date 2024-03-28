@@ -36,8 +36,9 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
+    
+    <div className="max-w-md px-10 mx-auto mt-8 bg-red-300 py-7 rounded-xl">
+      <h2 className="mb-4 text-2xl font-bold">Sign Up</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="firstname" className="block">First Name:</label>
@@ -47,7 +48,7 @@ const SignupPage = () => {
             name="firstname"
             value={formData.firstname}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -59,7 +60,7 @@ const SignupPage = () => {
             name="lastname"
             value={formData.lastname}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -71,7 +72,7 @@ const SignupPage = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -83,12 +84,12 @@ const SignupPage = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md"
             required
           />
         </div>
         
-        <button type="submit"  className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Sign Up</button>
+        <button type="submit"  className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Sign Up</button>
       </form>
     </div>
   );

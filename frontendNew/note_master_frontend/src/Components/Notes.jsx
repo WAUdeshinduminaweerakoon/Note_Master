@@ -1,16 +1,16 @@
-import React, {useEffect, useState}  from 'react'
-import CreateNote from './CreateNote'
+import React, {useEffect, useState}  from 'react';
+import CreateNote from './CreateNote';
 import {v4 as uuid} from 'uuid';
 import Note from './Note';
 
 const Notes = () => {
-    const [inputText, setInputText] = useState("")
-    const [notes, setNotes] = useState([])
-    const [editToggle, setEditToggle]= useState(null)
+    const [inputText, setInputText] = useState("");
+    const [notes, setNotes] = useState([]);
+    const [editToggle, setEditToggle]= useState(null);
 
     const editHandler = (id, text) =>{
-        setEditToggle(id)
-        setInputText(text)
+        setEditToggle(id);
+        setInputText(text);
 
     }
     const saveHander = () =>{
@@ -19,7 +19,7 @@ const Notes = () => {
                 note.id === editToggle?
                 {...note, text: inputText}
                 : note
-            )))
+            )));
         }else{
             setNotes((prevNotes)=>[
                 ...prevNotes,{
@@ -27,61 +27,62 @@ const Notes = () => {
                     text: inputText
                 }
                 
-            ])
+            ]);
         }
 
-        setInputText("")
-        setEditToggle(null)
-    }
+        setInputText("");
+        setEditToggle(null);
+    };
 
     const deleteHadler = (id) => {
-        const newNotes = notes.filter(n => n.id !== id)
-        setNotes(newNotes)
+        const newNotes = notes.filter(n => n.id !== id);
+        setNotes(newNotes);
 
-    }
+    };
     useEffect(()=>{
-        const data = JSON.parse(localStorage.getItem("Notes"))
+        const data = JSON.parse(localStorage.getItem("Notes"));
         if(data){
-            setNotes(data)
+            setNotes(data);
         }
-    }, [])
+    }, []);
 
     useEffect(()=>{
-        window.localStorage.setItem("Notes",JSON.stringify(notes))
-    },[notes])
+        window.localStorage.setItem("Notes",JSON.stringify(notes));
+    },[notes]);
   return (
-    <div>
+    <div >
         {
             notes.map((note)=>(
-                editToggle === note.id ?
+                editToggle === note.id ?(
                 <CreateNote
+                    // key={note.id}
                     inputText={inputText}
                     setInputText={setInputText}
                     saveHander={saveHander}
                 />
-                :
+                ):(
                 <Note
                     key={note.id}
                     id={note.id}
                     text={note.text}
-                    editHadler = {editHandler}
+                    editHandler = {editHandler}
                     deleteHadler = {deleteHadler}
                 
-                >        
-                </Note>
+                />        
+                )
             ))
         }{
-            editToggle == null ?
+            editToggle == null && (
             <CreateNote
-            inputText={inputText}
-            setInputText={setInputText}
-            saveHander={saveHander}
-            />: <></>
+                inputText={inputText}
+                setInputText={setInputText}
+                saveHander={saveHander}
+            />)
 
         }
       
     </div>
-  )
+  );
 }
 
-export default Notes
+export default Notes;
