@@ -6,7 +6,7 @@ exports.createUser = async (req, res) => {
         // Check if the email already exists
         const existingUser = await UserModel.findOne({ email: email });
         if (existingUser) {
-            return res.status(400).json({ message: "User with this email already exists" });
+            return res.status(401).json({ message: "User with this email already exists" });
 
         }
         // Create a new user
