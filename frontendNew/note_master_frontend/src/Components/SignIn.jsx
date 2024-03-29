@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -22,11 +24,11 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/user/get/formData.email', formData);
+      const response = await axios.post('http://localhost:3001/user/sigin', formData);
       console.log(response.data);
       setErrorMessage('');
-      // Handle successful login here, e.g., redirect user to dashboard
-      
+    
+      navigate('/Notes');
     } catch (error) {
       console.error(error);
       if (error.response) {

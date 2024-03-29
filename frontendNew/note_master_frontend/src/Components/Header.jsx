@@ -13,8 +13,12 @@ const Header = ({ isAuthenticated, onSignOut }) => {
     <header className='flex items-center justify-between w-full h-12 bg-gradient-to-r from-cyan-500 to-blue-500 '>
       
       <div className="flex items-center m-10 ">
-      <img src={logo} alt="Logo" className="w-auto h-10" />
-        <h1 className='m-10 text-4xl'>Note Master</h1>
+        <Link to="/">
+          <img src={logo} alt="Logo" className="w-auto h-10" />
+        </Link>
+        <Link to = '/'>
+          <h1 className='m-10 text-4xl'>Note Master</h1>
+        </Link>
       </div>
       <div className="flex items-center m-10 space-x-6"> 
         {isAuthenticated ? (
