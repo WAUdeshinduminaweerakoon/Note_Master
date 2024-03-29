@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const SignIn = () => {
+const SignIn = ({setAuthentication}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -27,7 +27,7 @@ const SignIn = () => {
       const response = await axios.post(' http://172.19.30.10:3001/user/sigin', formData);
       console.log(response.data);
       setErrorMessage('');
-    
+      setAuthentication(true)
       navigate('/Notes');
     } catch (error) {
       console.error(error);

@@ -27,7 +27,7 @@ function App() {
       <Routes>
       <Route path='/' element={<Home/>}></Route>
         <Route path='/Signup' element={<Signup/>}></Route>
-        <Route path='/SignIn' element={<SignIn/>}></Route>
+        <Route path='/SignIn' element={<SignIn setAuthentication={setIsAuthenticated}/>}></Route>
         <Route path='/Notes' element={<Notes/>}></Route>
       </Routes>
     </div>

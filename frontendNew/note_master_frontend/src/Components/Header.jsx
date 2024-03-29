@@ -25,7 +25,7 @@ const Header = ({ isAuthenticated, onSignOut }) => {
           <button onClick={handleSignOut} className="text-white hover:text-gray-300">Sign Out</button>
         ) : (
           <>
-            <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
+            <Link to="/signin" onClick= {handleSignOut} className="text-white hover:text-gray-300">Sign In</Link>
             <Link to="/signup" className="text-white hover:text-gray-300">Sign Up</Link>
           </>
         )}
