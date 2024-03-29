@@ -22,7 +22,7 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/user/login', formData);
+      const response = await axios.post('http://localhost:3001/user/get/formData.email', formData);
       console.log(response.data);
       setErrorMessage('');
       // Handle successful login here, e.g., redirect user to dashboard
@@ -39,8 +39,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-    <div className="max-w-md px-10 pt-4 mx-auto bg-gradient-to-r from-purple-600 to-purple-900 py-7 rounded-xl">
+    // <div className="flex items-center justify-center h-screen">
+    <div className="max-w-md px-10 pt-12 mx-auto bg-gradient-to-r from-purple-600 to-purple-900 py-7 rounded-xl">
       <h2 className="mb-4 text-2xl font-bold">Sign In</h2>
       {errorMessage && <p className="mb-4 text-red-600">{errorMessage}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -53,7 +53,7 @@ const SignIn = () => {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-10 py-2 border border-gray-300 rounded-md"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -73,7 +73,7 @@ const SignIn = () => {
         <button type="submit" className="px-1 text-xl text-black border border-black rounded-md hover:text-gray-300 focus:outline-none bg-gradient-to-r from-sky-500 to-indigo-500'">Sign In</button>
       </form>
     </div>
-    </div>
+    // </div>
   );
 };
 
