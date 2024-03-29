@@ -23,7 +23,7 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/user/login', formData);
+      const response = await axios.post('http://localhost:3001/user/create', formData);
       console.log(response.data);
       setFormData({
         firstname: '',
@@ -32,7 +32,7 @@ const SignupPage = () => {
         password: '',
         
       });
-      navigate('/Noies');
+      navigate('/SignIn');
     } catch (error) {
       console.error(error);
     }
