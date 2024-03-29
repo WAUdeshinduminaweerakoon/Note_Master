@@ -20,9 +20,9 @@ function App() {
   return (
     
     <BrowserRouter>
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-emerald-500">
     <Header isAuthenticated={isAuthenticated} onSignOut={handleSignOut} />
-      <div className="flex-1 overflow-y-auto bg-emerald-500">
+      <div className="flex-1 p-12 overflow-y-auto ">
       
       <Routes>
       <Route path='/' element={<Home/>}></Route>
