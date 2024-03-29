@@ -7,7 +7,7 @@ const CreateNote = ({ inputText, setInputText }) => {
 
     const saveHander = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/note/create', { note: inputText, email: "asdfs" });
+            const response = await axios.post('http://172.19.30.10:3001/note/create', { note: inputText, email: "asdfs" });
             console.log(response.data);
             response.data.forEach((item) => {
                 // console.log(`Item at index ${index}:`, item);
