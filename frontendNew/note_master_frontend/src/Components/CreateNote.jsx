@@ -12,7 +12,7 @@ const CreateNote = ({inputText, setInputText, saveHander}) => {
         cols = {20}
         rows = {5}
         value={inputText}
-        placeholder='Type a new note......'
+        placeholder='Type new note......'
         onChange={(e) => setInputText(e.target.value)}
         maxLength={200}
         className='w-full h-full p-5 text-black placeholder-gray-800 bg-transparent border border-gray-600 rounded-md focus:outline-none bg-slate-50 '

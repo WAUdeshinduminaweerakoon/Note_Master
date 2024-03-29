@@ -21,5 +21,6 @@ mongoose.connect(process.env.MONGODB_URL, {
 // Routes
 
 app.use("/user", userRoutes);
+app.use("/note", noteRoutes);
 
 module.exports = app;

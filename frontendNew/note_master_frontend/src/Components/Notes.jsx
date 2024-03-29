@@ -50,7 +50,7 @@ const Notes = () => {
         window.localStorage.setItem("Notes",JSON.stringify(notes));
     },[notes]);
   return (
-    <div  className='grid grid-cols-3 gap-x-4 gap-y-3'>
+    <div  className='grid grid-cols-1 gap-4 md:grid-cols-3'>
         {
             notes.map((note)=>(
                 editToggle === note.id ?(
