@@ -1,6 +1,7 @@
-// Header.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../Image/log.png'
 
 const Header = ({ isAuthenticated, onSignOut }) => {
   const handleSignOut = () => {
@@ -9,8 +10,10 @@ const Header = ({ isAuthenticated, onSignOut }) => {
   };
 
   return (
-    <header className='flex items-center justify-between w-full h-12 bg-slate-500 '>
-      <div className="flex items-center m-10 space-x-6">
+    <header className='flex items-center justify-between w-full h-12 bg-gradient-to-r from-cyan-500 to-blue-500 '>
+      
+      <div className="flex items-center m-10 ">
+      <img src={logo} alt="Logo" className="w-auto h-10" />
         <h1 className='m-10 text-4xl'>Note Master</h1>
       </div>
       <div className="flex items-center m-10 space-x-6"> 

@@ -40,7 +40,7 @@ const SignIn = () => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-    <div className="max-w-md px-10 mx-auto mt-8 bg-red-300 py-7 rounded-xl">
+    <div className="max-w-md px-10 pt-4 mx-auto bg-gradient-to-r from-purple-600 to-purple-900 py-7 rounded-xl">
       <h2 className="mb-4 text-2xl font-bold">Sign In</h2>
       {errorMessage && <p className="mb-4 text-red-600">{errorMessage}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -70,7 +70,7 @@ const SignIn = () => {
             required
           />
         </div>
-        <button type="submit" className="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Sign In</button>
+        <button type="submit" className="px-1 text-xl text-black border border-black rounded-md hover:text-gray-300 focus:outline-none bg-gradient-to-r from-sky-500 to-indigo-500'">Sign In</button>
       </form>
     </div>
     </div>

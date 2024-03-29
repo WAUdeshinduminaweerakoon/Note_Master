@@ -20,7 +20,7 @@ function App() {
   return (
     
     <BrowserRouter>
-    <div className="flex flex-col h-screen bg-emerald-500">
+    <div className="flex flex-col h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500">
     <Header isAuthenticated={isAuthenticated} onSignOut={handleSignOut} />
       <div className="flex-1 p-12 overflow-y-auto ">
       
