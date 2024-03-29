@@ -10,14 +10,14 @@ const Header = ({ isAuthenticated, onSignOut }) => {
   };
 
   return (
-    <header className='flex items-center justify-between w-full h-12 bg-gradient-to-r from-cyan-500 to-blue-500 '>
+    <header className='flex items-center justify-between w-full h-16 sm:h-16 bg-gradient-to-r from-cyan-500 to-blue-500 '>
       
       <div className="flex items-center m-10 ">
         <Link to="/">
-          <img src={logo} alt="Logo" className="w-auto h-10" />
+        <img src={logo} alt="Logo" className="w-auto h-12 sm:h-10 md:h-15 lg:h-18 xl:h-22" />
         </Link>
         <Link to = '/'>
-          <h1 className='m-10 text-4xl'>Note Master</h1>
+        <h1 className='m-4 text-1xl md:text-2xl lg:text-3xl xl:text-4xl'>Note Master</h1>
         </Link>
       </div>
       <div className="flex items-center m-10 space-x-6"> 

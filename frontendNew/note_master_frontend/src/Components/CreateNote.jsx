@@ -1,8 +1,27 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import Note from './Note'; 
 
-const CreateNote = ({inputText, setInputText, saveHander}) => {
-    const char =200;
-    const charLimit = char - inputText.length;
+const CreateNote = ({ inputText, setInputText }) => {
+    const charLimit = 200 - inputText.length;
+
+    const saveHander = async () => {
+        try {
+            const response = await axios.post('http://localhost:3001/note/create', { note: inputText, email: "asdfs" });
+            console.log(response.data);
+            response.data.forEach((item) => {
+                // console.log(`Item at index ${index}:`, item);
+                return (
+                    <Note key={item.id} id={item.id} text={item.text} />
+                );
+            });
+
+            setInputText('');
+        } catch (error) {
+            console.error('Error saving note:', error);
+        }
+    };
+
   return (
     <div className='relative items-center justify-center w-full p-3 '>
      
@@ -14,6 +33,7 @@ const CreateNote = ({inputText, setInputText, saveHander}) => {
         value={inputText}
         placeholder='Type new note......'
         onChange={(e) => setInputText(e.target.value)}
+        
         maxLength={200}
         className='w-full h-full p-5 text-black placeholder-gray-800 bg-transparent border border-gray-600 rounded-md focus:outline-none bg-slate-50 '
         >

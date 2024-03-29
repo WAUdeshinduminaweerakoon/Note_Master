@@ -3,13 +3,12 @@ const UserModel = require("../models/userModel");
 exports.createUser = async (req, res) => {
     try {
         const email = req.body.email;
-        // Check if the email already exists
         const existingUser = await UserModel.findOne({ email: email });
         if (existingUser) {
             return res.status(401).json({ message: "User with this email already exists" });
 
         }
-        // Create a new user
+
         const newUser = new UserModel({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -73,7 +72,7 @@ exports.userSignIn = async (req, res) => {
             return res.status(401).json({ message: "Incorrect password" });
         }
 
-        // Password is correct, return success message or user data
+
         res.json({ message: "Login successful", user });
     } catch (error) {
         res.status(500).json({ error: error.message });
