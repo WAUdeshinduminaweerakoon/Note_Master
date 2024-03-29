@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -30,6 +32,7 @@ const SignupPage = () => {
         password: '',
         
       });
+      navigate('/Noies');
     } catch (error) {
       console.error(error);
     }
