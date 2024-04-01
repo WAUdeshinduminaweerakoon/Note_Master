@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Cookies, CookiesProvider, useCookies } from 'react-cookie'
+
 
 const SignIn = ({setAuthentication}) => {
+  const cookies = new Cookies();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -24,8 +27,11 @@ const SignIn = ({setAuthentication}) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(' http://172.19.30.10:3001/user/sigin', formData);
-      console.log(response.data);
+      //console.log(process.env.BACKEND_URL)
+      const response = await axios.post('http://20.106.202.73:3001/user/sigin', formData);
+      cookies.set('email', response.data['user']['email'], { path: '/' });
+      cookies.set('isAuthenticated', true, { path: '/' });
+
       setErrorMessage('');
       setAuthentication(true)
       navigate('/Notes');

@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useState } from "react";
 import axios from 'axios';
 import Note from './Note'; 
+import { Cookies, CookiesProvider, useCookies } from 'react-cookie'
 
-const CreateNote = ({ inputText, setInputText }) => {
+
+
+const CreateNote = ({id , inputText, setInputText , setNotes}) => {
     const charLimit = 200 - inputText.length;
+    const cookies = new Cookies();
 
     const saveHander = async () => {
         try {
-            const response = await axios.post('http://172.19.30.10:3001/note/create', { note: inputText, email: "asdfs" });
+            const response = await axios.post('http://20.106.202.73:3001/note/create', { _id: id, email: cookies.get('email'), note: inputText });
             console.log(response.data);
-            response.data.forEach((item) => {
-                // console.log(`Item at index ${index}:`, item);
-                return (
-                    <Note key={item.id} id={item.id} text={item.text} />
-                );
-            });
-
+            setNotes(response.data); // Update notes with the response data
             setInputText('');
+            window.location.reload();
         } catch (error) {
             console.error('Error saving note:', error);
         }
