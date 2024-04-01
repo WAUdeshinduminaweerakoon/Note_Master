@@ -2,13 +2,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../Image/log.png'
+import { Cookies, CookiesProvider, useCookies } from 'react-cookie'
+
 
 const Header = ({ isAuthenticated, onSignOut }) => {
+  const cookies = new Cookies();
+  
   const handleSignOut = () => {
-    
     onSignOut();
   };
-
+  
   return (
     <header className='flex items-center justify-between w-full h-16 sm:h-16 bg-gradient-to-r from-cyan-500 to-blue-500 '>
       
@@ -22,8 +25,8 @@ const Header = ({ isAuthenticated, onSignOut }) => {
       </div>
       <div className="flex items-center m-10 space-x-6"> 
         {isAuthenticated ? (
-          <button onClick={handleSignOut} className="text-white hover:text-gray-300">Sign Out</button>
-        ) : (
+            <Link to="/" onClick= {handleSignOut} className="text-white hover:text-gray-300">Sign Out</Link>
+            ) : (
           <>
             <Link to="/signin" onClick= {handleSignOut} className="text-white hover:text-gray-300">Sign In</Link>
             <Link to="/signup" className="text-white hover:text-gray-300">Sign Up</Link>
@@ -35,4 +38,3 @@ const Header = ({ isAuthenticated, onSignOut }) => {
 };
 
 export default Header;
-
