@@ -49,4 +49,4 @@ const CreateNote = ({id , inputText, setInputText , setNotes}) => {
   )
 }
 
-export default CreateNote
+export default CreateNote;
