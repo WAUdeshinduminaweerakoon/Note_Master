@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
-import { Cookies, CookiesProvider, useCookies } from 'react-cookie'
+import { Cookies } from 'react-cookie'
 
 
 import Signup from './Components/Signup';
@@ -10,8 +10,10 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
 
+
 function App() {
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const cookies = new Cookies();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,7 +21,9 @@ function App() {
     if (cookies.get('isAuthenticated')) {
       setIsAuthenticated(cookies.get('isAuthenticated'))
     }
-  }, []);
+  }, [cookies]);
+  
+  
   const handleSignOut = () => {
     cookies.set('email', null, { path: '/' });
     cookies.set('isAuthenticated', false, { path: '/' });

@@ -3,11 +3,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../Image/log.png'
-import { Cookies, CookiesProvider, useCookies } from 'react-cookie'
+
 
 
 const Header = ({ isAuthenticated, onSignOut }) => {
-  const cookies = new Cookies();
+  // const cookies = new Cookies();
   
   const handleSignOut = () => {
     onSignOut();

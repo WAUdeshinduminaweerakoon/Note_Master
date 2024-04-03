@@ -23,7 +23,7 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://20.106.202.73:3001/user/create', formData);
+      const response = await axios.post('http://localhost:3001/user/create', formData);
       console.log(response.data);
       setFormData({
         firstname: '',

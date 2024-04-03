@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Cookies, CookiesProvider, useCookies } from 'react-cookie'
+import { Cookies} from 'react-cookie'
 
 
 const SignIn = ({setAuthentication}) => {
@@ -28,7 +28,7 @@ const SignIn = ({setAuthentication}) => {
 
     try {
       //console.log(process.env.BACKEND_URL)
-      const response = await axios.post('http://20.106.202.73:3001/user/sigin', formData);
+      const response = await axios.post('http://localhost:3001/user/sigin', formData);
       cookies.set('email', response.data['user']['email'], { path: '/' });
       cookies.set('isAuthenticated', true, { path: '/' });
 

@@ -3,7 +3,7 @@ const NoteModel = require("../models/noteModel");
 const UserModel = require("../models/userModel");
 
 exports.createNote = async (req, res) => {
-    console.log(req.body);
+//    console.log(req.body);
     try {
         const noteId = req.body._id;
         if (noteId!=null){
@@ -39,6 +39,7 @@ exports.createNote = async (req, res) => {
 
 exports.getNotes = async (req, res) => {
     try {
+//    console.log("ddddddd")
         return res.status(200).json(await NoteModel.find({email : req.params.email}));
     } catch (error) {
         res.status(500).json({ error: error.message });
