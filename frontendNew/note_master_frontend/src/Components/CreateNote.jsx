@@ -11,7 +11,7 @@ const CreateNote = ({id , inputText, setInputText , setNotes}) => {
 
     const saveHander = async () => {
         try {
-            const response = await axios.post('http://10.83.57.97:3001/note/create', { _id: id, email: cookies.get('email'), note: inputText });
+            const response = await axios.post('http://20.106.202.73:3001/note/create', { _id: id, email: cookies.get('email'), note: inputText });
             console.log(response.data);
             setNotes(response.data); // Update notes with the response data
             setInputText('');

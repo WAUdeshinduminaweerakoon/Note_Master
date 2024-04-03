@@ -40,7 +40,7 @@ const Notes = () => {
 
     const updateNotes = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/note/get-notes/' + cookies.email);
+            const response = await axios.get('http://20.106.202.73:3001/note/get-notes/' + cookies.email);
             setNotes(response.data);
         } catch (error) {
             console.error('Error fetching notes:', error);
@@ -49,7 +49,7 @@ const Notes = () => {
     
     const deleteHandler = async (id) => {
         try {
-            await axios.post('http://localhost:3001/note/delete-note', {
+            await axios.post('http://20.106.202.73:3001/note/delete-note', {
                 email: cookies.email,
                 _id: id
             });

@@ -28,7 +28,7 @@ const SignIn = ({setAuthentication}) => {
 
     try {
       //console.log(process.env.BACKEND_URL)
-      const response = await axios.post('http://localhost:3001/user/sigin', formData);
+      const response = await axios.post('http://20.106.202.73:3001/user/sigin', formData);
       cookies.set('email', response.data['user']['email'], { path: '/' });
       cookies.set('isAuthenticated', true, { path: '/' });
 
